@@ -392,6 +392,7 @@ public class EinsActivity extends Activity implements OnClickListener {
             }
             if (levelCounter == 5) {
 
+
                 finalMessage.setVisibility(View.VISIBLE);
 
                 if (inARow) {
@@ -407,8 +408,9 @@ public class EinsActivity extends Activity implements OnClickListener {
                     finalMessage.setText(test);
 
                 }
-                gewonnenDialog.show();
+
             }
+            gewonnenDialog.show();
 
             if (zugCounter == levelCounter && ans != Goal) {
                 Ausgabe.setText("Verloren!");
