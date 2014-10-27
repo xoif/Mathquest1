@@ -25,7 +25,7 @@ public class MenuActivity extends Activity {
 
 
         if (checkPref()) {
-            highscore.setText(readHighscore());
+            highscore.setText(readHighscore() + "");
         } else {
             highscore.setText("noch keine 5 Spiele am Stück geschafft");
         }

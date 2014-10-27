@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,10 +70,12 @@ public class EinsActivity extends Activity implements OnClickListener {
             }
         });
         gewonnenDialog.hide();
-        finalMessage = (TextView) findViewById(R.id.finalMessage);
-        highscoreAnzeige = (LinearLayout) findViewById(R.id.testContainer);  //Lineares Layout enthälte die Anzeige des Highscore
-        resetScoreAnzeige = (TextView) findViewById(R.id.resetsUsed);
-        currentHighScoreAnzeige = (TextView) findViewById(R.id.Highscore);
+        finalMessage = (TextView) gewonnenDialog.findViewById(R.id.finalMessage);
+
+
+        highscoreAnzeige = (LinearLayout) gewonnenDialog.findViewById(R.id.testContainer);  //Lineares Layout enthälte die Anzeige des Highscore
+        resetScoreAnzeige = (TextView) gewonnenDialog.findViewById(R.id.resetsUsed);
+        currentHighScoreAnzeige = (TextView) gewonnenDialog.findViewById(R.id.Highscore);
         dialogNextLevel = (Button) gewonnenDialog.findViewById(R.id.dialogNextLevel);
         dialogNextLevel.setOnClickListener(this);
 
@@ -383,13 +386,13 @@ public class EinsActivity extends Activity implements OnClickListener {
 
         if (zugCounter == levelCounter && ans == Goal) {
             Ausgabe.setText("Gewonnen!");
-            gameEnded = true;
+     /*       gameEnded = true;
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-            }
+            } */
             if (levelCounter == 5) {
 
 
@@ -397,35 +400,36 @@ public class EinsActivity extends Activity implements OnClickListener {
 
                 if (inARow) {
                     finalMessage.setText(R.string.finalMessage);
-                    resetScoreAnzeige.setText(resetCounter);
-                    if (readHighscore() < resetCounter) {
+                    resetScoreAnzeige.setText(resetCounter + "");
+                    if (readHighscore() > resetCounter) {
                         writeHighscore(resetCounter);
                     }
-                    currentHighScoreAnzeige.setText(readHighscore());
+                    currentHighScoreAnzeige.setText(readHighscore() + "");
                     highscoreAnzeige.setVisibility(View.VISIBLE);
                 } else {
                     String test = getResources().getString(R.string.finalMessage2);
                     finalMessage.setText(test);
 
                 }
-
             }
             gewonnenDialog.show();
+        }
 
-            if (zugCounter == levelCounter && ans != Goal) {
+
+        if (zugCounter == levelCounter && ans != Goal) {
                 Ausgabe.setText("Verloren!");
                 gameEnded = true;
-                try {
+            Log.i("verloren", "funktioniert");
+           /*     try {
                     Thread.sleep(200);
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
+                }*/
                 verlorenDialog.show();
             }
 
         }
-    }
 
 
     public void reset() {
