@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="Abstand_linkeReihe">10dp</dimen>
+    <dimen name="Abstand_rechteReihe">160dp</dimen>
+    <dimen name="Button_Breite">100dp</dimen>
+    <dimen name="Button_Hoehe">100dp</dimen>
+    <dimen name="Button_Textgr">60dp</dimen>
+    <dimen name="Hoehe_obereButtons">120dp</dimen>
+    <dimen name="Hoehee_untereButtons">240dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="normale_groesse">20dp</dimen>
+    <!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="Buttongeteilt">/</string>
+    <string name="Buttonmal">*</string>
+    <string name="Buttonminus">-</string>
+    <string name="Buttonplus">+</string>
+    <string name="Ergebnis">Ergebnis</string>
+    <string name="Ergebnisanzeige">0</string>
+    <string name="Start">Startzahl</string>
+    <string name="Ziel">Ziel</string>
+    <string name="app_name">mathquest</string>
+    <string name="ausgabe">0</string>
+    <string name="finalMessage">Gratulation du hast alle 5 Prüfungen nach der Reihe bestanden! "nächster Level" startet ein neues Spiel </string>
+    <string name="finalMessage2">Gratulation du hast den schwersten mathquest Level geschafft! "nächster Level" startet ein neues Spiel</string>
+    <string name="gewonnen">geschafft!</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menuHighscore">wenigste Resets: </string>
+    <string name="menu_hauptMenu">Hauptmenü</string>
+    <string name="menu_levelDrei">Level 3</string>
+    <string name="menu_levelEins">Level 1</string>
+    <string name="menu_levelFuenf">Level 5</string>
+    <string name="menu_levelVier">Level 4</string>
+    <string name="menu_levelZwei">Level 2</string>
+    <string name="reset">reset</string>
+    <string name="title_activity_eins">EinsActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="verloren">Probiers noch einmal!</string>
+    <!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools" tools:context="paetow.seifert.mathquest.EinsActivity">
+
+
+
+
+	<item android:id="@+id/menueins" android:title="@+string/menu_levelEins"
+		android:orderInCategory="100" android:visible="true" 
+		android:showAsAction="withText" />
+
+	<item android:id="@+id/menuzwei" android:title="@+string/menu_levelZwei"
+		android:orderInCategory="100" android:visible="true" 
+		android:showAsAction="withText" />
+
+	<item android:id="@+id/menudrei" android:title="@+string/menu_levelDrei"
+		android:orderInCategory="100" android:visible="true" 
+		android:showAsAction="withText" />
+
+	<item android:id="@+id/menuvier" android:title="@+string/menu_levelVier"
+
+		android:orderInCategory="100" android:visible="true" 
+		android:showAsAction="withText" />
+
+	<item android:id="@+id/menufuenf" android:title="@+string/menu_levelFuenf"
+		android:orderInCategory="100" android:visible="true" 
+		android:showAsAction="withText" />
+
+
+	<item android:id="@+id/hauptMenu" android:title="@string/menu_hauptMenu"
+		android:icon="@drawable/plus" android:showAsAction="ifRoom"
+		android:visible="true" android:enabled="true" android:orderInCategory="100" />
+
+
+
+
+
+
+
+
+</menu>
+<!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/menu/eins.xml -->

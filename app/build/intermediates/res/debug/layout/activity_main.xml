@@ -1,0 +1,161 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activitybackground"
+    android:gravity="center"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.rechner.MainActivity" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="32dp"
+        android:text="@string/Start"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/normale_groesse" />
+
+    <Button
+        android:id="@+id/addieren"
+        style="@style/AppTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/subtrahieren"
+        android:layout_alignLeft="@+id/multiplizieren"
+        android:layout_alignRight="@+id/multiplizieren"
+        android:layout_alignTop="@+id/subtrahieren"
+        android:minHeight="@dimen/Button_Hoehe"
+        android:minWidth="@dimen/Button_Hoehe"
+        android:text="@string/Buttonplus"
+        android:textSize="@dimen/Button_Textgr" />
+
+    <EditText
+        android:id="@+id/Goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Startzahl"
+        android:layout_alignBottom="@+id/Startzahl"
+        android:layout_marginLeft="31dp"
+        android:layout_toRightOf="@+id/addieren"
+        android:ems="4"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/subtrahieren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/multiplizieren"
+        android:layout_alignLeft="@+id/Goal"
+        android:layout_marginBottom="16dp"
+        android:minHeight="@dimen/Button_Hoehe"
+        android:minWidth="@dimen/Button_Hoehe"
+        android:text="@string/Buttonminus"
+        android:textSize="@dimen/Button_Textgr" />
+
+    <Button
+        android:id="@+id/dividieren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/subtrahieren"
+        android:layout_alignTop="@+id/multiplizieren"
+        android:minHeight="@dimen/Button_Hoehe"
+        android:minWidth="@dimen/Button_Hoehe"
+        android:text="@string/Buttongeteilt"
+        android:textSize="@dimen/Button_Textgr" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Goal"
+        android:layout_alignLeft="@+id/Goal"
+        android:text="@string/Ziel"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/normale_groesse" />
+
+    <EditText
+        android:id="@+id/Startzahl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignRight="@+id/addieren"
+        android:layout_below="@+id/textView2"
+        android:ems="4"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/Ergebnisanzeige"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/dividieren"
+        android:layout_marginBottom="80dp"
+        android:gravity="right"
+        android:linksClickable="false"
+        android:text="@string/Ergebnisanzeige"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Ergebnisanzeige"
+        android:layout_alignLeft="@+id/textView2"
+        android:text="@string/Ergebnis"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/multiplizieren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:minHeight="35dp"
+        android:minWidth="@dimen/Button_Hoehe"
+        android:paddingTop="10dp"
+        android:text="@string/Buttonmal"
+        android:textSize="@dimen/Button_Textgr" />
+
+    <ImageView
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/reset"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/progressbackground"
+        android:src="@drawable/progressbar" />
+
+    <TextView
+        android:id="@+id/bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/reset"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-2dp"
+        android:background="@drawable/bubble"
+        android:clickable="false"
+        android:gravity="bottom|center_horizontal"
+        android:longClickable="false"
+        android:text="TextView"
+        android:textAlignment="gravity" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/progress"
+        android:layout_marginBottom="20dp"
+        android:text="@string/reset" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/layout/activity_main.xml -->
