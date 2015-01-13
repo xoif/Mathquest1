@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="Abstand_linkeReihe">10dp</dimen>
     <dimen name="Abstand_rechteReihe">160dp</dimen>
@@ -12,7 +12,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="normale_groesse">20dp</dimen>
-    <!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="Buttongeteilt">/</string>
     <string name="Buttonmal">*</string>
@@ -39,7 +39,7 @@
     <string name="title_activity_eins">EinsActivity</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="verloren">Probiers noch einmal!</string>
-    <!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

@@ -2,13 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/activitybackground"
-    android:gravity="center"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.rechner.MainActivity" >
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="paetow.seifert.mathquest.ZeitActivity"
+    android:background="@drawable/activitybackground"
+    android:gravity="center">
+
+
 
     <TextView
         android:id="@+id/textView2"
@@ -25,14 +27,12 @@
         style="@style/AppTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/subtrahieren"
-        android:layout_alignLeft="@+id/multiplizieren"
-        android:layout_alignRight="@+id/multiplizieren"
-        android:layout_alignTop="@+id/subtrahieren"
         android:minHeight="@dimen/Button_Hoehe"
         android:minWidth="@dimen/Button_Hoehe"
         android:text="@string/Buttonplus"
-        android:textSize="@dimen/Button_Textgr" />
+        android:textSize="@dimen/Button_Textgr"
+        android:layout_below="@+id/Startzahl"
+        android:layout_alignStart="@+id/textView2" />
 
     <EditText
         android:id="@+id/Goal"
@@ -43,30 +43,31 @@
         android:layout_marginLeft="31dp"
         android:layout_toRightOf="@+id/addieren"
         android:ems="4"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:layout_alignParentEnd="false"
+        />
 
     <Button
         android:id="@+id/subtrahieren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/multiplizieren"
-        android:layout_alignLeft="@+id/Goal"
-        android:layout_marginBottom="16dp"
         android:minHeight="@dimen/Button_Hoehe"
         android:minWidth="@dimen/Button_Hoehe"
         android:text="@string/Buttonminus"
-        android:textSize="@dimen/Button_Textgr" />
+        android:textSize="@dimen/Button_Textgr"
+        android:layout_alignTop="@+id/addieren"
+        android:layout_alignStart="@+id/Goal" />
 
     <Button
         android:id="@+id/dividieren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/subtrahieren"
-        android:layout_alignTop="@+id/multiplizieren"
         android:minHeight="@dimen/Button_Hoehe"
         android:minWidth="@dimen/Button_Hoehe"
         android:text="@string/Buttongeteilt"
-        android:textSize="@dimen/Button_Textgr" />
+        android:textSize="@dimen/Button_Textgr"
+        android:layout_alignTop="@+id/multiplizieren"
+        android:layout_alignStart="@+id/subtrahieren" />
 
     <TextView
         android:id="@+id/textView1"
@@ -86,7 +87,8 @@
         android:layout_alignRight="@+id/addieren"
         android:layout_below="@+id/textView2"
         android:ems="4"
-        android:inputType="numberDecimal" >
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="30dp">
 
         <requestFocus />
     </EditText>
@@ -95,35 +97,45 @@
         android:id="@+id/Ergebnisanzeige"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/dividieren"
-        android:layout_marginBottom="80dp"
         android:gravity="right"
         android:linksClickable="false"
         android:text="@string/Ergebnisanzeige"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="50sp" />
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/chronometer"
+        android:layout_alignEnd="@+id/dividieren" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Ergebnisanzeige"
-        android:layout_alignLeft="@+id/textView2"
-        android:text="@string/Ergebnis"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/Zeit"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/dividieren"
+        android:layout_alignStart="@+id/multiplizieren"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ergebnis"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/dividieren"
+        android:layout_alignEnd="@+id/dividieren" />
 
     <Button
         android:id="@+id/multiplizieren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
         android:minHeight="35dp"
         android:minWidth="@dimen/Button_Hoehe"
         android:paddingTop="10dp"
         android:text="@string/Buttonmal"
-        android:textSize="@dimen/Button_Textgr" />
+        android:textSize="@dimen/Button_Textgr"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/addieren" />
 
     <ImageView
         android:id="@+id/progress"
@@ -158,4 +170,12 @@
         android:layout_marginBottom="20dp"
         android:text="@string/reset" />
 
-</RelativeLayout><!-- From: file:/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/main/res/layout/activity_main.xml -->
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chronometer"
+        android:textSize="40sp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+</RelativeLayout>
