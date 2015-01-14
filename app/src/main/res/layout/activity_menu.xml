@@ -19,27 +19,50 @@
 
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/menuHighscore"
-            android:id="@+id/menuHighScore"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"
-            />
+    <!--  <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:text="@string/menuHighscore"
+          android:id="@+id/menuHighScore"
+          android:layout_marginLeft="10dp"
+          android:layout_centerVertical="true"
+          />
+          -->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="0"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/menuHighscoreAusgabe"
- android:layout_below="@id/menuHighScore"
-
-
- />
+    <!-- <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:text="0"
+         android:layout_marginLeft="10dp"
+         android:id="@+id/menuHighscoreAusgabe"
+android:layout_below="@id/menuHighScore"
 
 
+/>-->
+
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Schritte"
+        android:id="@+id/stepButton"
+        android:onClick="schrittButton"
+        android:background="@drawable/hintergrund"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="169dp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Zeit"
+        android:id="@+id/timeButton"
+        android:onClick="zeitButton"
+
+        android:background="@drawable/hintergrund"
+
+        android:layout_alignTop="@+id/stepButton"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

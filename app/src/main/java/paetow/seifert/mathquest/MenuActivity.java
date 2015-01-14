@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MenuActivity extends Activity {
@@ -21,25 +22,41 @@ public class MenuActivity extends Activity {
         ActionBar actionBar = getActionBar();
         actionBar.hide();
 
-        highscore = (TextView) findViewById(R.id.menuHighscoreAusgabe);
+    }
+
+    public void zeitButton(View v)
+    {
+        Intent i = new Intent(this, ZeitActivity.class);
+        startActivity(i);
+    }
+
+    public void schrittButton(View v)
+    {
+        Intent i = new Intent(this, EinsActivity.class);
+        startActivity(i);
+    }
+
+    // highscore = (TextView) findViewById(R.id.menuHighscoreAusgabe);
 
 
-        if (checkPref()) {
+       /* if (checkPref()) {
             highscore.setText(readHighscore() + "");
         } else {
             highscore.setText("noch keine 5 Spiele am Stück geschafft");
-        }
-
-    }
+        }*/
 
 
-    public void loslegen(View Buttonclick) {
+
+
+   /* public void loslegen(View Buttonclick) {
 
         Intent in = new Intent(this, EinsActivity.class);
         startActivity(in);
 
 
-    }
+    }*/
+
+
 
     public boolean checkPref() {
         SharedPreferences pref = getSharedPreferences("GAME", 0);

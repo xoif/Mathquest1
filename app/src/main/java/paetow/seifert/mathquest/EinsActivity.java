@@ -206,7 +206,7 @@ public class EinsActivity extends Activity implements OnClickListener {
 
         //Zielzahl berechnen
         do {
-            Tools.aim();
+            Tools.aim1();
         }
         while (Goal == 0);
 
@@ -296,10 +296,6 @@ public class EinsActivity extends Activity implements OnClickListener {
     }
 
     private void ziehen() {
-
-        zugCounter++;
-        step(false);
-        setBubbleText();
 
         zugCounter++;
         step(false);

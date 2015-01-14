@@ -33,15 +33,15 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
 
     private Dialog dialog;
-    private Button dialogReset, dialogNextLevel;
 
+    private Button dialogReset, dialogNextLevel, Plusbutton, Minusbutton, Malbutton, Teilbutton, Resetbutton;
     private EditText startZahl, zielZahl;
-
     private TextView Ausgabe, bubbleText, finalMessage, currentHighScoreAnzeige, resetScoreAnzeige;
 
-    private Button Plusbutton, Minusbutton, Malbutton, Teilbutton, Resetbutton;
+    public static ButtonProp buttonA, buttonB, buttonC, buttonD;
 
-    private int levelCounter, ans, Start, Goal, zugCounter, resetCounter;
+    public static int ans, Start, Goal, levelCounter;
+    private int zugCounter, resetCounter;
     private LinearLayout highscoreAnzeige;
 
 
@@ -51,13 +51,7 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
     private ClipDrawable fortschrittsFuellung;
     private int fuellZustand;
 
-
-    int plusZahl, minusZahl, malZahl, teilZahl;
-
-    int buttonA, buttonB, buttonC, buttonD;
     private Boolean gameEnded, inARow;
-
-    Rechenoperation anton, berta, chris, doofie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +60,6 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
         inARow = true;
 
-        //Dialogfenster und deren Buttons initialisieren
         //Dialogfenster und deren Buttons initialisieren
         dialog = new Dialog(this, android.R.style.Theme_Translucent);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -83,13 +76,21 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         dialogReset = (Button) dialog.findViewById(R.id.dialogReset);
         dialogReset.setOnClickListener(this);
 
+
+        levelCounter = 1;              //Beim Starten der Aktivity wird mit Level 1 gestartet
+        zugCounter = 0;                          //Zugzaehler auf Null setzen
+
+        fuellZustand = 0;                      //Fortschrittsbalken auf Null setzen
+        gameEnded = false;
+
+        Resetbutton = (Button) findViewById(R.id.reset);
+        Resetbutton.setOnClickListener(this);
+
         //Fortschrittsbalken, dessen Fuellung und Handler initialisieren
         fortschrittsBalken = (ImageView) findViewById(R.id.progress);
         fortschrittsFuellung = (ClipDrawable) fortschrittsBalken.getDrawable();
         pHandler = new Handler();
-
         fortschrittsFuellung.setLevel(0);    //Setzt Fuellung auf Anfang
-
 
         //Buttons und Felder initialisieren
         startZahl = (EditText) findViewById(R.id.Startzahl);
@@ -132,23 +133,21 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
                 Intent in = new Intent(this, MenuActivity.class);
                 startActivity(in);
                 dialog.dismiss();
-                dialog.dismiss();
                 return true;
             case R.id.menueins:
                 levelEins_starten();
                 return true;
             case R.id.menuzwei:
-                levelZwei_starten();
+                startLvl(2);
                 return true;
             case R.id.menudrei:
-                levelDrei_starten();
+                startLvl(3);
                 return true;
             case R.id.menuvier:
-                levelVier_starten();
+                startLvl(4);
                 return true;
-
             case R.id.menufuenf:
-                levelFuenf_starten();
+                startLvl(5);
                 return true;
 
 
@@ -180,16 +179,16 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
                 reset();
                 break;
             case R.id.addieren:
-                addieren();
+                calculateCheck(buttonA);
                 break;
             case R.id.subtrahieren:
-                subtrahieren();
+                calculateCheck(buttonB);
                 break;
             case R.id.multiplizieren:
-                multiplizieren();
+                calculateCheck(buttonC);
                 break;
             case R.id.dividieren:
-                dividieren();
+                calculateCheck(buttonD);
                 break;
 
         }
@@ -202,30 +201,19 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         Random Zufall = new Random();
         Start = Zufall.nextInt(20);
         Goal = Start;
-        Zufall.setSeed(System.currentTimeMillis());
-
-        plusZahl = Zufall.nextInt(8) + 1;
-        minusZahl = Zufall.nextInt(8) + 1;
-        malZahl = Zufall.nextInt(8) + 1;
-        teilZahl = Zufall.nextInt(14) + 1;
-        ;
 
 
-        // Button Enums
-        buttonA = Zufall.nextInt(4);
-        buttonB = Zufall.nextInt(4);
-        buttonC = Zufall.nextInt(4);
-        buttonD = Zufall.nextInt(4);
-
-        anton = Rechenoperation.getEnumByValue(buttonA);
-        berta = Rechenoperation.getEnumByValue(buttonB);
-        chris = Rechenoperation.getEnumByValue(buttonC);
-        doofie = Rechenoperation.getEnumByValue(buttonD);
+        // Button Propertys
+        buttonA = new ButtonProp();
+        buttonB = new ButtonProp();
+        buttonC = new ButtonProp();
+        buttonD = new ButtonProp();
 
 
         //Zielzahl berechnen
+
         do {
-            Goal = zielen();
+            Tools.aimZeit();
         }
         while (Goal == 0);
 
@@ -237,33 +225,44 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         String zuErreichen = String.valueOf(Goal);
         String zwischenErgebnis = String.valueOf(ans);
 
-        String plus = String.valueOf(plusZahl);
-        String minus = String.valueOf(minusZahl);
-        String mal = String.valueOf(malZahl);
-        String teil = String.valueOf(teilZahl);
+        String plus = String.valueOf(buttonA.value);
+        String minus = String.valueOf(buttonB.value);
+        String mal = String.valueOf(buttonC.value);
+        String teil = String.valueOf(buttonD.value);
 
 
         //Buttons das jeweilige Drawable zuordnen
-        if (anton.toString() == "PLUS") Plusbutton.setBackgroundResource(R.drawable.plus);
-        if (anton.toString() == "MINUS") Plusbutton.setBackgroundResource(R.drawable.minus);
-        if (anton.toString() == "MAL") Plusbutton.setBackgroundResource(R.drawable.mal);
-        if (anton.toString() == "TEIL") Plusbutton.setBackgroundResource(R.drawable.geteilt);
+        switch(buttonA.operator){
+            case 0: Plusbutton.setBackgroundResource(R.drawable.plus);break;
+            case 1: Plusbutton.setBackgroundResource(R.drawable.minus);break;
+            case 2: Plusbutton.setBackgroundResource(R.drawable.mal);break;
+            case 3: Plusbutton.setBackgroundResource(R.drawable.geteilt);break;
+            default: break;
+        }
 
-        if (berta.toString() == "PLUS") Minusbutton.setBackgroundResource(R.drawable.plus);
-        if (berta.toString() == "MINUS") Minusbutton.setBackgroundResource(R.drawable.minus);
-        if (berta.toString() == "MAL") Minusbutton.setBackgroundResource(R.drawable.mal);
-        if (berta.toString() == "TEIL") Minusbutton.setBackgroundResource(R.drawable.geteilt);
+        switch(buttonB.operator){
+            case 0: Minusbutton.setBackgroundResource(R.drawable.plus);break;
+            case 1: Minusbutton.setBackgroundResource(R.drawable.minus);break;
+            case 2: Minusbutton.setBackgroundResource(R.drawable.mal);break;
+            case 3: Minusbutton.setBackgroundResource(R.drawable.geteilt);break;
+            default: break;
+        }
 
-        if (chris.toString() == "PLUS") Malbutton.setBackgroundResource(R.drawable.plus);
-        if (chris.toString() == "MINUS") Malbutton.setBackgroundResource(R.drawable.minus);
-        if (chris.toString() == "MAL") Malbutton.setBackgroundResource(R.drawable.mal);
-        if (chris.toString() == "TEIL") Malbutton.setBackgroundResource(R.drawable.geteilt);
+        switch(buttonC.operator){
+            case 0: Malbutton.setBackgroundResource(R.drawable.plus);break;
+            case 1: Malbutton.setBackgroundResource(R.drawable.minus);break;
+            case 2: Malbutton.setBackgroundResource(R.drawable.mal);break;
+            case 3: Malbutton.setBackgroundResource(R.drawable.geteilt);break;
+            default: break;
+        }
 
-        if (doofie.toString() == "PLUS") Teilbutton.setBackgroundResource(R.drawable.plus);
-        if (doofie.toString() == "MINUS") Teilbutton.setBackgroundResource(R.drawable.minus);
-        if (doofie.toString() == "MAL") Teilbutton.setBackgroundResource(R.drawable.mal);
-        if (doofie.toString() == "TEIL") Teilbutton.setBackgroundResource(R.drawable.geteilt);
-
+        switch(buttonD.operator){
+            case 0: Teilbutton.setBackgroundResource(R.drawable.plus);break;
+            case 1: Teilbutton.setBackgroundResource(R.drawable.minus);break;
+            case 2: Teilbutton.setBackgroundResource(R.drawable.mal);break;
+            case 3: Teilbutton.setBackgroundResource(R.drawable.geteilt);break;
+            default: break;
+        }
 
         //Texte in Grafik laden
         startZahl.setText(Startzahl);
@@ -319,84 +318,22 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
     }
 
 
-    public void addieren() {
+    public void calculateCheck(ButtonProp b){
 
         if (gameEnded == true && levelCounter == 5) {
             Intent in = new Intent(this, MenuActivity.class);
             startActivity(in);
         } else if (gameEnded == true && ans != Goal) {
         } else {
-            if (anton.toString() == "PLUS") ans = ans + plusZahl;
-            if (anton.toString() == "MINUS") ans = ans - plusZahl;
-            if (anton.toString() == "MAL") ans = ans * plusZahl;
-            if (anton.toString() == "TEIL") ans = ans / plusZahl;
+            ans=Tools.calculate(ans, b);
 
             String zwischenErgebnis = String.valueOf(ans);
             Ausgabe.setText(zwischenErgebnis);
             ziehen();
         }
     }
-
-    public void subtrahieren() {
-
-        if (gameEnded == true && levelCounter == 5) {
-            Intent in = new Intent(this, MenuActivity.class);
-            startActivity(in);
-        } else if (gameEnded == true && ans != Goal) {
-        } else {
-            if (berta.toString() == "PLUS") ans = ans + minusZahl;
-            if (berta.toString() == "MINUS") ans = ans - minusZahl;
-            if (berta.toString() == "MAL") ans = ans * minusZahl;
-            if (berta.toString() == "TEIL") ans = ans / minusZahl;
-
-            String zwischenErgebnis = String.valueOf(ans);
-            Ausgabe.setText(zwischenErgebnis);
-            ziehen();
-        }
-    }
-
-    public void multiplizieren() {
-
-        if (gameEnded == true && levelCounter == 5) {
-            Intent in = new Intent(this, MenuActivity.class);
-            startActivity(in);
-        } else if (gameEnded == true && ans != Goal) {
-        } else {
-            if (chris.toString() == "PLUS") ans = ans + malZahl;
-            if (chris.toString() == "MINUS") ans = ans - malZahl;
-            if (chris.toString() == "MAL") ans = ans * malZahl;
-            if (chris.toString() == "TEIL") ans = ans / malZahl;
-
-            String zwischenErgebnis = String.valueOf(ans);
-            Ausgabe.setText(zwischenErgebnis);
-            ziehen();
-        }
-    }
-
-    public void dividieren() {
-
-        if (gameEnded == true && levelCounter == 5) {
-            Intent in = new Intent(this, MenuActivity.class);
-            startActivity(in);
-        } else if (gameEnded == true && ans != Goal) {
-        } else {
-            if (doofie.toString() == "PLUS") ans = ans + teilZahl;
-            if (doofie.toString() == "MINUS") ans = ans - teilZahl;
-            if (doofie.toString() == "MAL") ans = ans * teilZahl;
-            if (doofie.toString() == "TEIL") ans = ans / teilZahl;
-
-            String zwischenErgebnis = String.valueOf(ans);
-            Ausgabe.setText(zwischenErgebnis);
-            ziehen();
-        }
-    }
-
 
     private void ziehen() {
-
-        zugCounter++;
-        step(false);
-        setBubbleText();
 
         zugCounter++;
         step(false);
@@ -430,27 +367,28 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
             dialogNextLevel.setVisibility(View.VISIBLE);    //nextLevel Button anzeigen
             dialogReset.setVisibility(View.GONE);           //Reset Button ausblenden
 
+            chronometer.stop();
+            chronometer.setBase(SystemClock.elapsedRealtime());
+
             dialog.show();
         }
-
 
 
         if (zugCounter == levelCounter && ans != Goal) {
             Ausgabe.setText("Verloren!");
             gameEnded = true;
-            Log.i("dialog", "funktioniert");
-           /*     try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }*/
+            Log.i("verloren", "funktioniert");
 
+            TextView headLine = (TextView) dialog.findViewById(R.id.headline);
+            headLine.setText("verloren");
+
+            dialogNextLevel.setVisibility(View.GONE);    //nextLevel Button ausblenden
+            dialogReset.setVisibility(View.VISIBLE);           //Reset Button anzeigen
 
             chronometer.stop();
             chronometer.setBase(SystemClock.elapsedRealtime());
-            dialog.show();
 
+            dialog.show();
         }
 
     }
@@ -464,120 +402,15 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         ans = Start;
         String zwischenErgebnis = String.valueOf(ans);
         Ausgabe.setText(zwischenErgebnis);
-
         step(true);
         setBubbleText(); //sezt den Fortschritsbalken auf Ausgangsposition zurueck
+
         /*chronometer.stop();
         chronometer.setBase(SystemClock.elapsedRealtime());*/
         chronometer.start();
 
 
     }
-
-    public enum Rechenoperation {
-        PLUS,
-        MINUS,
-        MAL,
-        TEIL;
-
-        public static Rechenoperation getEnumByValue(int value) {
-            switch (value) {
-                case 0:
-                    return PLUS;
-                case 1:
-                    return MINUS;
-                case 2:
-                    return MAL;
-                case 3:
-                    return TEIL;
-                default:
-                    return null;
-            }
-        }
-
-        public String getRechenzeichen() {
-            switch (this) {
-                case PLUS:
-                    return "+";
-                case MINUS:
-                    return "-";
-                case MAL:
-                    return "x";
-                case TEIL:
-                    return ":";
-                default:
-                    return null;
-                //domi
-            }
-        }
-    }
-
-
-    //Zufallszahlen berechnen
-    //
-    //
-    public int zielen() {
-
-        Random Zufall = new Random();
-
-        for (int i = 0; i < levelCounter; i++) {
-            int dynamik = Zufall.nextInt(4);
-
-            if (dynamik == 0) {
-                plus();
-            }
-            if (dynamik == 1) {
-                minus();
-            }
-            if (dynamik == 2) {
-                malen();
-            }
-            if (dynamik == 3) {
-                teilen();
-            }
-        }
-        return Goal;
-    }
-
-    public void plus() {
-
-        if (anton.toString() == "PLUS") Goal = Goal + plusZahl;
-        if (anton.toString() == "MINUS") Goal = Goal - plusZahl;
-        if (anton.toString() == "MAL") Goal = Goal * plusZahl;
-        if (anton.toString() == "TEIL") Goal = Goal / plusZahl;
-
-    }
-
-    public void minus() {
-
-        if (berta.toString() == "PLUS") Goal = Goal + minusZahl;
-        if (berta.toString() == "MINUS") Goal = Goal - minusZahl;
-        if (berta.toString() == "MAL") Goal = Goal * minusZahl;
-        if (berta.toString() == "TEIL") Goal = Goal / minusZahl;
-
-    }
-
-    public void malen() {
-
-        if (chris.toString() == "PLUS") Goal = Goal + malZahl;
-        if (chris.toString() == "MINUS") Goal = Goal - malZahl;
-        if (chris.toString() == "MAL") Goal = Goal * malZahl;
-        if (chris.toString() == "TEIL") Goal = Goal / malZahl;
-
-    }
-
-    public void teilen() {
-
-        if (doofie.toString() == "PLUS") Goal = Goal + teilZahl;
-        if (doofie.toString() == "MINUS") Goal = Goal - teilZahl;
-        if (doofie.toString() == "MAL") Goal = Goal * teilZahl;
-        if (doofie.toString() == "TEIL") Goal = Goal / teilZahl;
-
-    }
-    //
-    //
-    // Ende Zufallszahlen berechnen
-
 
     public void levelEins_starten() {
         levelCounter = 1;
@@ -587,30 +420,8 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         reset();
     }
 
-    public void levelZwei_starten() {
-        levelCounter = 2;
-        inARow = false;
-        loadLevel();
-        reset();
-    }
-
-    public void levelDrei_starten() {
-        levelCounter = 3;
-        inARow = false;
-        loadLevel();
-        reset();
-    }
-
-    public void levelVier_starten() {
-        levelCounter = 4;
-        inARow = false;
-        loadLevel();
-        reset();
-
-    }
-
-    public void levelFuenf_starten() {
-        levelCounter = 5;
+    public void startLvl(int x){
+        levelCounter = x;
         inARow = false;
         loadLevel();
         reset();
@@ -625,7 +436,6 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         }
     };
 
-
     private void doTheAnimation() {
 
         fortschrittsFuellung.setLevel(fuellZustand);
@@ -634,8 +444,6 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         } else {
             pHandler.removeCallbacks(animateImage);
         }
-
-
     }
 
     private void step(boolean resetter) {
