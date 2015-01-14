@@ -332,7 +332,6 @@ public class EinsActivity extends Activity implements OnClickListener {
             dialog.show();
         }
 
-
         if (zugCounter == levelCounter && ans != Goal) {
             Ausgabe.setText("Verloren!");
             gameEnded = true;
@@ -443,14 +442,14 @@ public class EinsActivity extends Activity implements OnClickListener {
 
 
     public void writeHighscore(int highscore) {
-        SharedPreferences pref = getSharedPreferences("GAME", 0);
+        SharedPreferences pref = getSharedPreferences("POINTS", 0);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt("HIGHSCORE", highscore);
         editor.commit();
     }
 
     public int readHighscore() {
-        SharedPreferences pref = getSharedPreferences("GAME", 0);
+        SharedPreferences pref = getSharedPreferences("POINTS", 0);
         return pref.getInt("HIGHSCORE", 0);
     }
 

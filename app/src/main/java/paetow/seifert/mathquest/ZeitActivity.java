@@ -491,14 +491,14 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
 
     public void writeHighscore(int highscore) {
-        SharedPreferences pref = getSharedPreferences("GAME", 0);
+        SharedPreferences pref = getSharedPreferences("TIME", 0);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt("HIGHSCORE", highscore);
         editor.commit();
     }
 
     public int readHighscore() {
-        SharedPreferences pref = getSharedPreferences("GAME", 0);
+        SharedPreferences pref = getSharedPreferences("TIME", 0);
         return pref.getInt("HIGHSCORE", 0);
     }
 
