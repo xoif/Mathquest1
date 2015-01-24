@@ -30,7 +30,7 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
     //Pausedialoge
 
     private Chronometer chronometer;
-
+    private long timeWhenStopped;
 
     private Dialog dialog;
 
@@ -42,6 +42,7 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
     public static int ans, Start, Goal, levelCounter;
     private int zugCounter, resetCounter;
+    private int[] highscores;
     private LinearLayout highscoreAnzeige;
 
 
@@ -109,6 +110,7 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         resetCounter = 0; //Reset Zähler auf 0 setzten
 
         chronometer = (Chronometer) findViewById(R.id.chronometer);
+        timeWhenStopped = 0;
 
         loadLevel();    //generiert das Interface abhaengig vom Spiellevel
 
@@ -275,7 +277,7 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         setBubbleText();
 
 
-        chronometer.setBase(SystemClock.elapsedRealtime());
+        chronometer.setBase(SystemClock.elapsedRealtime()+timeWhenStopped);
         chronometer.start();
 
         /*chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener(){
@@ -312,7 +314,6 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         gameEnded = false;
         zugCounter = 0;
         step(true);
-        chronometer.stop();
         loadLevel();
 
     }
@@ -342,6 +343,9 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         if (zugCounter == levelCounter && ans == Goal) {
             Ausgabe.setText("Gewonnen!");
 
+            timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
+            chronometer.stop();
+
             if (levelCounter == 5) {
 
 
@@ -350,10 +354,9 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
                 if (inARow) {
                     finalMessage.setText(R.string.finalMessage);
                     resetScoreAnzeige.setText(resetCounter + "");
-                    if (readHighscore() > resetCounter) {
-                        writeHighscore(resetCounter);
-                    }
-                    currentHighScoreAnzeige.setText(readHighscore() + "");
+                    writeHighscore((int)timeWhenStopped);
+                    // Wie anzeigen des Highscores???
+                    // currentHighScoreAnzeige.setText(readHighscore() + "");
                     highscoreAnzeige.setVisibility(View.VISIBLE);
                 } else {
                     String test = getResources().getString(R.string.finalMessage2);
@@ -366,9 +369,6 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
             dialogNextLevel.setVisibility(View.VISIBLE);    //nextLevel Button anzeigen
             dialogReset.setVisibility(View.GONE);           //Reset Button ausblenden
-
-            chronometer.stop();
-            chronometer.setBase(SystemClock.elapsedRealtime());
 
             dialog.show();
         }
@@ -385,9 +385,9 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
             dialogNextLevel.setVisibility(View.GONE);    //nextLevel Button ausblenden
             dialogReset.setVisibility(View.VISIBLE);           //Reset Button anzeigen
 
-            chronometer.stop();
-            chronometer.setBase(SystemClock.elapsedRealtime());
 
+            timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
+            chronometer.stop();
             dialog.show();
         }
 
@@ -407,6 +407,7 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
         /*chronometer.stop();
         chronometer.setBase(SystemClock.elapsedRealtime());*/
+        chronometer.setBase(SystemClock.elapsedRealtime()+timeWhenStopped);
         chronometer.start();
 
 
@@ -492,14 +493,34 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
     public void writeHighscore(int highscore) {
         SharedPreferences pref = getSharedPreferences("TIME", 0);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putInt("HIGHSCORE", highscore);
-        editor.commit();
+        int i = 1;
+        while(highscore>=pref.getInt("HIGHSCORE"+i, 0)){
+            i++;
+        }
+        if (i<=10){
+            SharedPreferences.Editor editor = pref.edit();
+
+            int temp = pref.getInt("HIGHSCORE"+i, 0);
+            editor.putInt("HIGHSCORE"+i, highscore);
+            while (i<10){
+                i++;
+                int temp2 = pref.getInt("HIGHSCORE"+i, 0);
+                editor.putInt("HIGHSCORE"+i, temp);
+                temp = temp2;
+            }
+            editor.commit();
+        }
     }
 
-    public int readHighscore() {
+    public int[] readHighscore() {
+
         SharedPreferences pref = getSharedPreferences("TIME", 0);
-        return pref.getInt("HIGHSCORE", 0);
+        highscores = new int[9];
+        for(int i = 1; i<=highscores.length; i++){
+            highscores[i-1] = pref.getInt("HIGHSCORE"+i, 0);
+        }
+        return highscores;
+
     }
 
 

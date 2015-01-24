@@ -37,7 +37,9 @@ public class EinsActivity extends Activity implements OnClickListener {
 
     public static int ans, Start, Goal, levelCounter;
     private int zugCounter, resetCounter;
+    private int[] highscores;
     private LinearLayout highscoreAnzeige;
+
 
 
     //Animation des Fortschrittsbalken
@@ -312,10 +314,9 @@ public class EinsActivity extends Activity implements OnClickListener {
                 if (inARow) {
                     finalMessage.setText(R.string.finalMessage);
                     resetScoreAnzeige.setText(resetCounter + "");
-                    if (readHighscore() > resetCounter) {
-                        writeHighscore(resetCounter);
-                    }
-                    currentHighScoreAnzeige.setText(readHighscore() + "");
+                    writeHighscore(resetCounter);
+                    //Anzeige des Highscores?
+                    //currentHighScoreAnzeige.setText(readHighscore() + "");
                     highscoreAnzeige.setVisibility(View.VISIBLE);
                 } else {
                     String test = getResources().getString(R.string.finalMessage2);
@@ -443,14 +444,34 @@ public class EinsActivity extends Activity implements OnClickListener {
 
     public void writeHighscore(int highscore) {
         SharedPreferences pref = getSharedPreferences("POINTS", 0);
+        int i = 1;
+        while(highscore>=pref.getInt("HIGHSCORE"+i, 0)){
+            i++;
+        }
+        if (i<=10){
         SharedPreferences.Editor editor = pref.edit();
-        editor.putInt("HIGHSCORE", highscore);
+
+        int temp = pref.getInt("HIGHSCORE"+i, 0);
+        editor.putInt("HIGHSCORE"+i, highscore);
+        while (i<10){
+            i++;
+            int temp2 = pref.getInt("HIGHSCORE"+i, 0);
+            editor.putInt("HIGHSCORE"+i, temp);
+            temp = temp2;
+        }
         editor.commit();
+        }
     }
 
-    public int readHighscore() {
+    public int[] readHighscore() {
+
         SharedPreferences pref = getSharedPreferences("POINTS", 0);
-        return pref.getInt("HIGHSCORE", 0);
+        highscores = new int[9];
+        for(int i = 1; i<=highscores.length; i++){
+            highscores[i-1] = pref.getInt("HIGHSCORE"+i, 0);
+        }
+        return highscores;
+
     }
 
 

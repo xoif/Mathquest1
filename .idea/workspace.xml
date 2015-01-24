@@ -18,7 +18,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fe985f7-b904-4422-bcd4-c4644e0bcb41" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/EinsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/EinsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/ZeitActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/ZeitActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -47,15 +46,10 @@
       <file leaf-file-name="EinsActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/EinsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5923" max-vertical-offset="6540">
-              <caret line="451" column="61" selection-start-line="451" selection-start-column="61" selection-end-line="451" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6058" max-vertical-offset="6720">
+              <caret line="447" column="25" selection-start-line="447" selection-start-column="25" selection-end-line="447" selection-end-column="25" />
               <folding>
-                <element signature="e#10358#10379#0" expanded="true" />
-                <element signature="e#10782#10830#0" expanded="true" />
-                <element signature="e#12424#12533#0" expanded="true" />
-                <element signature="e#12526#12527#0" expanded="true" />
-                <element signature="e#13488#13702#0" expanded="true" />
-                <element signature="e#13683#13684#0" expanded="true" />
+                <element signature="e#10389#10410#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,8 +58,21 @@
       <file leaf-file-name="ZeitActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/ZeitActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7082658" vertical-offset="6508" max-vertical-offset="7125">
-              <caret line="500" column="59" selection-start-line="500" selection-start-column="59" selection-end-line="500" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.31928688" vertical-offset="6823" max-vertical-offset="7440">
+              <caret line="505" column="7" selection-start-line="505" selection-start-column="7" selection-end-line="505" selection-end-column="7" />
+              <folding>
+                <element signature="e#11945#11966#0" expanded="true" />
+                <element signature="e#12350#12398#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/MenuActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1035">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -74,7 +81,7 @@
       <file leaf-file-name="Tools.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/Tools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1005">
+            <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1005">
               <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding />
             </state>
@@ -84,7 +91,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="600">
+            <state vertical-scroll-proportion="-20.08" vertical-offset="8" max-vertical-offset="600">
               <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
@@ -633,6 +640,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/MenuActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/Tools.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/Node.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/EinsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/ZeitActivity.java" />
       </list>
@@ -669,6 +677,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -725,6 +734,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -867,8 +877,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1062,7 +1070,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="0" />
+    <frame x="0" y="22" width="1280" height="774" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1076,7 +1084,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1231003" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31914893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36474165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1089,10 +1098,9 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32883894" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31914893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1100,15 +1108,15 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15505618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32826748" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1122,8 +1130,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31914893" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1231003" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1149,15 +1157,47 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/EinsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6945">
+          <caret line="451" column="61" selection-start-line="451" selection-start-column="61" selection-end-line="451" selection-end-column="61" />
+          <folding>
+            <element signature="e#10389#10410#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/ZeitActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6508" max-vertical-offset="7125">
+          <caret line="500" column="59" selection-start-line="500" selection-start-column="59" selection-end-line="500" selection-end-column="59" />
+          <folding>
+            <element signature="e#11945#11966#0" expanded="true" />
+            <element signature="e#12350#12398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/Tools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1005">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="600">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/EinsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6510">
           <caret line="435" column="8" selection-start-line="435" selection-start-column="8" selection-end-line="435" selection-end-column="8" />
           <folding>
-            <element signature="e#10358#10379#0" expanded="true" />
-            <element signature="e#10782#10830#0" expanded="true" />
-            <element signature="e#12424#12533#0" expanded="true" />
-            <element signature="e#12526#12527#0" expanded="true" />
-            <element signature="e#13488#13702#0" expanded="true" />
-            <element signature="e#13683#13684#0" expanded="true" />
+            <element signature="e#10389#10410#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1166,7 +1206,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3225" max-vertical-offset="7680">
           <caret line="215" column="21" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#11945#11966#0" expanded="true" />
+            <element signature="e#12350#12398#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1198,12 +1241,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="5055" max-vertical-offset="7020">
           <caret line="337" column="0" selection-start-line="299" selection-start-column="8" selection-end-line="337" selection-end-column="0" />
           <folding>
-            <element signature="e#10358#10379#0" expanded="true" />
-            <element signature="e#10782#10830#0" expanded="true" />
-            <element signature="e#12424#12533#0" expanded="true" />
-            <element signature="e#12526#12527#0" expanded="true" />
-            <element signature="e#13488#13702#0" expanded="true" />
-            <element signature="e#13683#13684#0" expanded="true" />
+            <element signature="e#10389#10410#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1212,7 +1250,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6429" max-vertical-offset="10455">
           <caret line="447" column="0" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#11945#11966#0" expanded="true" />
+            <element signature="e#12350#12398#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1236,12 +1277,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="5265" max-vertical-offset="6720">
           <caret line="375" column="42" selection-start-line="375" selection-start-column="42" selection-end-line="375" selection-end-column="42" />
           <folding>
-            <element signature="e#10358#10379#0" expanded="true" />
-            <element signature="e#10782#10830#0" expanded="true" />
-            <element signature="e#12424#12533#0" expanded="true" />
-            <element signature="e#12526#12527#0" expanded="true" />
-            <element signature="e#13488#13702#0" expanded="true" />
-            <element signature="e#13683#13684#0" expanded="true" />
+            <element signature="e#10389#10410#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1381,13 +1417,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/MenuActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.875" vertical-offset="515" max-vertical-offset="1035">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.868154" vertical-offset="0" max-vertical-offset="2490">
@@ -1427,7 +1456,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="600">
+        <state vertical-scroll-proportion="-20.08" vertical-offset="8" max-vertical-offset="600">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
@@ -1441,26 +1470,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/MenuActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1035">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/EinsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5923" max-vertical-offset="6540">
-          <caret line="451" column="61" selection-start-line="451" selection-start-column="61" selection-end-line="451" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6058" max-vertical-offset="6720">
+          <caret line="447" column="25" selection-start-line="447" selection-start-column="25" selection-end-line="447" selection-end-column="25" />
           <folding>
-            <element signature="e#10358#10379#0" expanded="true" />
-            <element signature="e#10782#10830#0" expanded="true" />
-            <element signature="e#12424#12533#0" expanded="true" />
-            <element signature="e#12526#12527#0" expanded="true" />
-            <element signature="e#13488#13702#0" expanded="true" />
-            <element signature="e#13683#13684#0" expanded="true" />
+            <element signature="e#10389#10410#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/paetow/seifert/mathquest/ZeitActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7082658" vertical-offset="6508" max-vertical-offset="7125">
-          <caret line="500" column="59" selection-start-line="500" selection-start-column="59" selection-end-line="500" selection-end-column="59" />
-          <folding />
+        <state vertical-scroll-proportion="0.31928688" vertical-offset="6823" max-vertical-offset="7440">
+          <caret line="505" column="7" selection-start-line="505" selection-start-column="7" selection-end-line="505" selection-end-column="7" />
+          <folding>
+            <element signature="e#11945#11966#0" expanded="true" />
+            <element signature="e#12350#12398#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
