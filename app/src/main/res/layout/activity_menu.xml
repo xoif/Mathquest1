@@ -50,9 +50,8 @@ android:layout_below="@id/menuHighScore"
         android:id="@+id/stepButton"
         android:onClick="schrittButton"
         android:background="@drawable/hintergrund"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="169dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="100dp"
@@ -60,9 +59,18 @@ android:layout_below="@id/menuHighScore"
         android:text="@string/Zeit"
         android:id="@+id/timeButton"
         android:onClick="zeitButton"
-
         android:background="@drawable/hintergrund"
+        android:layout_below="@+id/stepButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
 
-        android:layout_alignTop="@+id/stepButton"
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:onClick="highscoreButton"
+        android:id="@+id/highscore_button"
+        android:background="@drawable/hintergrund"
+        android:text="@string/Highscore"
+        android:layout_above="@+id/timeButton"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

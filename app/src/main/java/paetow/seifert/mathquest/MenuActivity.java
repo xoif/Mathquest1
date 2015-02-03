@@ -36,6 +36,11 @@ public class MenuActivity extends Activity {
         startActivity(i);
     }
 
+    public void highscoreButton(View v)
+    {
+        Intent i = new Intent(this, ranking.class);
+        startActivity(i);
+    }
     // highscore = (TextView) findViewById(R.id.menuHighscoreAusgabe);
 
 
