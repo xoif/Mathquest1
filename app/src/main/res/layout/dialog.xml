@@ -15,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
+        android:text="textView"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -24,7 +25,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/finalMessage"
         android:id="@+id/finalMessage"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:visibility="gone"
@@ -39,10 +40,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:visibility="gone"
-        android:id="@+id/testContainer"
+        android:id="@+id/stats"
         >
 
         <TextView
+            android:id="@+id/highscoreart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -54,41 +56,65 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="0"
-            android:id="@+id/resetsUsed" />
+            android:id="@+id/pointsMade" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Highscore:"
-            android:layout_marginLeft="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="0"
-            android:id="@+id/Highscore" />
     </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:id="@+id/newHighscore"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Gratulation, neuer Highscore!"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="gib deinen Name ein"
+            android:id="@+id/newName"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    android:layout_gravity="center">
+
 
     <Button
         android:id="@+id/dialogNextLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
         android:text="nächster Level" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/dialogReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:text="@string/reset" />
+         android:text="@string/reset" />
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package paetow.seifert.mathquest;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -33,6 +35,9 @@ public class ranking extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
 
+        ActionBar actionBar = getActionBar();
+        actionBar.hide();
+
          highscore1 = (TextView) findViewById(R.id.Highscore1);
          highscore2 = (TextView) findViewById(R.id.Highscore2);
          highscore3 = (TextView) findViewById(R.id.Highscore3);
@@ -49,27 +54,6 @@ public class ranking extends Activity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_ranking, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     public int[] readHighscore1() {
 
@@ -102,6 +86,12 @@ public class ranking extends Activity {
             high[i-1].setText(pref.getInt("HIGHSCORE"+i, 0));
         }
 
+    }
+
+    public void goback (View v)
+    {
+        Intent i = new Intent(this, MenuActivity.class);
+        startActivity(i);
     }
 
 

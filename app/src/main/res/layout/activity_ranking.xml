@@ -4,206 +4,313 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="paetow.seifert.mathquest.ranking">
+    tools:context="paetow.seifert.mathquest.ranking"
+    >
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Highscoreliste"
+    android:textStyle="bold"
+    android:textSize="35dp"
+    android:id="@+id/highscoreliste"/>
 
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/highscoreliste"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/highscorebuttons"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Zeit"
+            android:id="@+id/button"
+            android:width="120dp"
+            android:onClick="readHighscoreZeit"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Schritte"
+            android:id="@+id/schritt"
+            android:width="120dp"
+            android:onClick="readHighscoreSchritte"/>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:layout_below="@+id/highscorebuttons"
+        android:id="@+id/highscoretable"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/hintergrund"
+        android:padding="15dp"
+        >
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Textfeld1"
+                android:text="@string/Platz1"
+                android:layout_marginRight="30dp"
+                                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name1"
+                android:text="name"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore1"
+                android:text="alkd"
+                />
+
+        </TableRow>
+
+        <TableRow android:paddingBottom="10dp">
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Textfeld2"
+            android:text="@string/Platz2"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name2"
+                android:text="name"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore2"
+                android:text="alkd"
+                />
+        </TableRow>
+
+
+        <TableRow
+            android:paddingBottom="10dp">   <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Textfeld3"
+            android:text="@string/Platz3"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name3"
+                android:text="name"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore3"
+                android:text="alkd"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:paddingBottom="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Textfeld4"
+                android:text="@string/Platz4"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name4"
+                android:text="name"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore4"
+                android:text="alkd"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Textfeld5"
+            android:text="@string/Platz5"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name5"
+                android:text="name"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore5"
+                android:text="alkd"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:paddingBottom="10dp">   <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Textfeld6"
+            android:text="@string/Platz6"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name6"
+                android:text="name"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore6"
+                android:text="alkd"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:paddingBottom="10dp"> <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Textfeld7"
+            android:text="@string/Platz7"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name7"
+                android:text="name"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore7"
+                android:text="alkd"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:paddingBottom="10dp">   <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Textfeld8"
+            android:text="@string/Platz8"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name8"
+                android:text="name"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore8"
+                android:text="alkd"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Textfeld9"
+                android:text="@string/Platz9"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name9"
+                android:text="name"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore9"
+                android:text="alkd"
+                />
+
+        </TableRow>
+
+
+        <TableRow>  <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Textfeld10"
+            android:text="@string/Platz10"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name10"
+                android:text="name"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Highscore10"
+                android:text="alkd"
+                />       </TableRow>
+
+        </TableLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:text="@string/Zeit"
-        android:id="@+id/button"
-        android:layout_gravity="center_horizontal"
-        android:width="120dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="readHighscoreZeit"/>
+        android:text="zurück zum Hauptmenü"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="goback"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Schritte"
-        android:id="@+id/schritt"
-        android:width="120dp"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignParentStart="true"
-        android:onClick="readHighscoreSchritte"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld1"
-        android:text="@string/Platz1"
-        android:layout_below="@id/schritt"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld2"
-        android:text="@string/Platz2"
-        android:layout_below="@id/Textfeld1"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld3"
-        android:text="@string/Platz3"
-        android:layout_below="@id/Textfeld2"
-        android:layout_marginTop="20dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld4"
-        android:text="@string/Platz4"
-        android:layout_below="@id/Textfeld3"
-        android:layout_marginTop="20dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld5"
-        android:text="@string/Platz5"
-        android:layout_below="@id/Textfeld4"
-        android:layout_marginTop="20dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld6"
-        android:text="@string/Platz6"
-        android:layout_below="@id/Textfeld5"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld7"
-        android:text="@string/Platz7"
-        android:layout_below="@id/Textfeld6"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld8"
-        android:text="@string/Platz8"
-        android:layout_below="@id/Textfeld7"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld9"
-        android:text="@string/Platz9"
-        android:layout_below="@id/Textfeld8"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Textfeld10"
-        android:text="@string/Platz10"
-        android:layout_below="@id/Textfeld9"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore1"
-        android:layout_toRightOf="@id/Textfeld1"
-        android:layout_below="@id/button"
-        android:text="alkd"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore2"
-        android:layout_toRightOf="@id/Textfeld2"
-        android:layout_below="@id/Highscore1"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore3"
-        android:layout_toRightOf="@id/Textfeld3"
-        android:layout_below="@id/Highscore2"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore4"
-        android:layout_toRightOf="@id/Textfeld4"
-        android:layout_below="@id/Highscore3"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore5"
-        android:layout_toRightOf="@id/Textfeld5"
-        android:layout_below="@id/Highscore4"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore6"
-        android:layout_toRightOf="@id/Textfeld6"
-        android:layout_below="@id/Highscore5"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore7"
-        android:layout_toRightOf="@id/Textfeld7"
-        android:layout_below="@id/Highscore6"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore8"
-        android:layout_toRightOf="@id/Textfeld8"
-        android:layout_below="@id/Highscore7"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore9"
-        android:layout_toRightOf="@id/Textfeld9"
-        android:layout_below="@id/Highscore8"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Highscore10"
-        android:layout_toRightOf="@id/Textfeld10"
-        android:layout_below="@id/Highscore9"
-        android:text="alkd"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="190dp"/>
 
 </RelativeLayout>

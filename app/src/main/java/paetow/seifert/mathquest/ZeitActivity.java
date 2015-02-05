@@ -35,8 +35,7 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
     private Dialog dialog;
 
     private Button dialogReset, dialogNextLevel, Plusbutton, Minusbutton, Malbutton, Teilbutton, Resetbutton;
-    private EditText startZahl, zielZahl;
-    private TextView Ausgabe, bubbleText, finalMessage, currentHighScoreAnzeige, resetScoreAnzeige;
+    private TextView Ausgabe, bubbleText, finalMessage, resetScoreAnzeige,  startZahl, zielZahl;
 
     public static ButtonProp buttonA, buttonB, buttonC, buttonD;
 
@@ -69,9 +68,8 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         dialog.hide();
 
         finalMessage = (TextView) dialog.findViewById(R.id.finalMessage);
-        highscoreAnzeige = (LinearLayout) dialog.findViewById(R.id.testContainer);  //Lineares Layout enthälte die Anzeige des Highscore
-        resetScoreAnzeige = (TextView) dialog.findViewById(R.id.resetsUsed);
-        currentHighScoreAnzeige = (TextView) dialog.findViewById(R.id.Highscore);
+        highscoreAnzeige = (LinearLayout) dialog.findViewById(R.id.stats);  //Lineares Layout enthälte die Anzeige des Highscore
+        resetScoreAnzeige = (TextView) dialog.findViewById(R.id.pointsMade);
         dialogNextLevel = (Button) dialog.findViewById(R.id.dialogNextLevel);
         dialogNextLevel.setOnClickListener(this);
         dialogReset = (Button) dialog.findViewById(R.id.dialogReset);
@@ -94,8 +92,8 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         fortschrittsFuellung.setLevel(0);    //Setzt Fuellung auf Anfang
 
         //Buttons und Felder initialisieren
-        startZahl = (EditText) findViewById(R.id.Startzahl);
-        zielZahl = (EditText) findViewById(R.id.Goal);
+        startZahl = (TextView) findViewById(R.id.Startzahl);
+        zielZahl = (TextView) findViewById(R.id.Goal);
         Ausgabe = (TextView) findViewById(R.id.Ergebnisanzeige);
         Plusbutton = (Button) findViewById(R.id.addieren);
         Plusbutton.setOnClickListener(this);
@@ -341,8 +339,6 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         setBubbleText();
 
         if (zugCounter == levelCounter && ans == Goal) {
-            Ausgabe.setText("Gewonnen!");
-
             timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
             chronometer.stop();
 
@@ -353,11 +349,18 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
                 if (inARow) {
                     finalMessage.setText(R.string.finalMessage);
-                    resetScoreAnzeige.setText(resetCounter + "");
+                    resetScoreAnzeige.setText(timeWhenStopped + "");
                     writeHighscore((int)timeWhenStopped);
-                    // Wie anzeigen des Highscores???
-                    // currentHighScoreAnzeige.setText(readHighscore() + "");
                     highscoreAnzeige.setVisibility(View.VISIBLE);
+
+                    LinearLayout highscoreTextEdit = (LinearLayout) findViewById(R.id.newHighscore);
+                    highscoreTextEdit.setVisibility(View.VISIBLE);
+
+                    EditText newName = (EditText) findViewById(R.id.newName);
+                    String newHighscoreName = newName.getText().toString();   //diesen Wert in Highscore speichern
+
+                    if (newHighscoreName == "gib deinen Name ein"){newHighscoreName = "ohne Name";}
+
                 } else {
                     String test = getResources().getString(R.string.finalMessage2);
                     finalMessage.setText(test);
@@ -375,7 +378,6 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
 
         if (zugCounter == levelCounter && ans != Goal) {
-            Ausgabe.setText("Verloren!");
             gameEnded = true;
             Log.i("verloren", "funktioniert");
 

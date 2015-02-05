@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Natascha\Desktop\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
-        <dex dex="C:\Users\Natascha\AndroidStudioProjects\Mathquest1\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-46ab821e3e7291d6c2402498bdbcd8005687d43f.jar" />
+        <dex dex="C:\Users\Rolf Paetow\Desktop\Mathquest1\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-c30e376a8a37b42530721aa3276156097e39d8df.jar" />
     </item>
 
 </items>

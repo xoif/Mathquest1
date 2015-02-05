@@ -3,7 +3,7 @@
 
     <string name="app_name">mathquest</string>
     <string name="Start">Startzahl</string>
-    <string name="Ziel">Ziel</string>
+    <string name="Ziel">Zielzahl</string>
     <string name="Buttonplus">+</string>
     <string name="Buttonminus">-</string>
     <string name="Buttongeteilt">/</string>
@@ -32,16 +32,16 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_ranking">ranking</string>
     <string name="Highscore">Highscore</string>
-    <string name="Platz1">Platz1</string>
-    <string name="Platz2">Platz2</string>
-    <string name="Platz3">Platz3</string>
-    <string name="Platz4">Platz4</string>
-    <string name="Platz5">Platz5</string>
-    <string name="Platz6">Platz6</string>
-    <string name="Platz7">Platz7</string>
-    <string name="Platz8">Platz8</string>
-    <string name="Platz9">Platz9</string>
-    <string name="Platz10">Platz10</string>
+    <string name="Platz1">1</string>
+    <string name="Platz2">2</string>
+    <string name="Platz3">3</string>
+    <string name="Platz4">4</string>
+    <string name="Platz5">5</string>
+    <string name="Platz6">6</string>
+    <string name="Platz7">7</string>
+    <string name="Platz8">8</string>
+    <string name="Platz9">9</string>
+    <string name="Platz10">10</string>
 
 
 

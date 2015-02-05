@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,10 +29,8 @@ public class EinsActivity extends Activity implements OnClickListener {
     //Pausedialoge
 
     private Dialog dialog;
-
     private Button dialogReset, dialogNextLevel, Plusbutton, Minusbutton, Malbutton, Teilbutton, Resetbutton;
-    private EditText startZahl, zielZahl;
-    private TextView Ausgabe, bubbleText, finalMessage, currentHighScoreAnzeige, resetScoreAnzeige;
+    private TextView Ausgabe, bubbleText, finalMessage, resetScoreAnzeige,startZahl, zielZahl;
 
     public static ButtonProp buttonA, buttonB, buttonC, buttonD;
 
@@ -53,7 +52,7 @@ public class EinsActivity extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_zeit);
 
         inARow = true;
 
@@ -61,14 +60,20 @@ public class EinsActivity extends Activity implements OnClickListener {
         dialog = new Dialog(this, android.R.style.Theme_Translucent);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog);
-
         dialog.hide();
 
+
+        //Zeitmessung ausblenden
+        TextView zeit = (TextView) findViewById(R.id.Zeit);
+        zeit.setVisibility(View.INVISIBLE);
+        Chronometer chronometer = (Chronometer) findViewById(R.id.chronometer);
+        chronometer.setVisibility(View.INVISIBLE);
+
+
         finalMessage = (TextView) dialog.findViewById(R.id.finalMessage);
-        highscoreAnzeige = (LinearLayout) dialog.findViewById(R.id.testContainer);  //Lineares Layout enthälte die Anzeige des Highscore
-        resetScoreAnzeige = (TextView) dialog.findViewById(R.id.resetsUsed);
-        currentHighScoreAnzeige = (TextView) dialog.findViewById(R.id.Highscore);
-        dialogNextLevel = (Button) dialog.findViewById(R.id.dialogNextLevel);
+        highscoreAnzeige = (LinearLayout) dialog.findViewById(R.id.stats);  //Lineares Layout enthälte die Anzeige des Highscore
+        resetScoreAnzeige = (TextView) dialog.findViewById(R.id.pointsMade);
+              dialogNextLevel = (Button) dialog.findViewById(R.id.dialogNextLevel);
         dialogNextLevel.setOnClickListener(this);
         dialogReset = (Button) dialog.findViewById(R.id.dialogReset);
         dialogReset.setOnClickListener(this);
@@ -92,8 +97,8 @@ public class EinsActivity extends Activity implements OnClickListener {
 
 
         //Buttons und Felder initialisieren
-        startZahl = (EditText) findViewById(R.id.Startzahl);
-        zielZahl = (EditText) findViewById(R.id.Goal);
+        startZahl = (TextView) findViewById(R.id.Startzahl);
+        zielZahl = (TextView) findViewById(R.id.Goal);
         Ausgabe = (TextView) findViewById(R.id.Ergebnisanzeige);
         Plusbutton = (Button) findViewById(R.id.addieren);
         Plusbutton.setOnClickListener(this);
@@ -304,7 +309,6 @@ public class EinsActivity extends Activity implements OnClickListener {
         setBubbleText();
 
         if (zugCounter == levelCounter && ans == Goal) {
-            Ausgabe.setText("Gewonnen!");
 
             if (levelCounter == 5) {
 
@@ -315,9 +319,16 @@ public class EinsActivity extends Activity implements OnClickListener {
                     finalMessage.setText(R.string.finalMessage);
                     resetScoreAnzeige.setText(resetCounter + "");
                     writeHighscore(resetCounter);
-                    //Anzeige des Highscores?
-                    //currentHighScoreAnzeige.setText(readHighscore() + "");
+
                     highscoreAnzeige.setVisibility(View.VISIBLE);
+
+                    LinearLayout highscoreTextEdit = (LinearLayout) findViewById(R.id.newHighscore);
+                    highscoreTextEdit.setVisibility(View.VISIBLE);
+
+                    EditText newName = (EditText) findViewById(R.id.newName);
+                    String newHighscoreName = newName.getText().toString();   //diesen Wert in Highscore speichern
+
+                    if (newHighscoreName == "gib deinen Name ein"){newHighscoreName = "ohne Name";}
                 } else {
                     String test = getResources().getString(R.string.finalMessage2);
                     finalMessage.setText(test);
@@ -334,8 +345,7 @@ public class EinsActivity extends Activity implements OnClickListener {
         }
 
         if (zugCounter == levelCounter && ans != Goal) {
-            Ausgabe.setText("Verloren!");
-            gameEnded = true;
+                     gameEnded = true;
             Log.i("verloren", "funktioniert");
 
             TextView headLine = (TextView) dialog.findViewById(R.id.headline);
@@ -463,16 +473,6 @@ public class EinsActivity extends Activity implements OnClickListener {
         }
     }
 
-    public int[] readHighscore() {
-
-        SharedPreferences pref = getSharedPreferences("POINTS", 0);
-        highscores = new int[9];
-        for(int i = 1; i<=highscores.length; i++){
-            highscores[i-1] = pref.getInt("HIGHSCORE"+i, 0);
-        }
-        return highscores;
-
-    }
 
 
 }
