@@ -27,9 +27,22 @@ public class ranking extends Activity {
     TextView highscore8 ;
     TextView highscore9 ;
     TextView highscore10;
-
-
     TextView[] high;
+
+    TextView name1;
+    TextView name2;
+    TextView name3;
+    TextView name4;
+    TextView name5;
+    TextView name6;
+    TextView name7;
+    TextView name8;
+    TextView name9;
+    TextView name10;
+
+    TextView[] names;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,54 +51,54 @@ public class ranking extends Activity {
         ActionBar actionBar = getActionBar();
         actionBar.hide();
 
-         highscore1 = (TextView) findViewById(R.id.Highscore1);
-         highscore2 = (TextView) findViewById(R.id.Highscore2);
-         highscore3 = (TextView) findViewById(R.id.Highscore3);
+        highscore1 = (TextView) findViewById(R.id.Highscore1);
+        highscore2 = (TextView) findViewById(R.id.Highscore2);
+        highscore3 = (TextView) findViewById(R.id.Highscore3);
         highscore4 = (TextView) findViewById(R.id.Highscore4);
-         highscore5 = (TextView) findViewById(R.id.Highscore5);
-         highscore6 = (TextView) findViewById(R.id.Highscore6);
-         highscore7 = (TextView) findViewById(R.id.Highscore7);
-         highscore8 = (TextView) findViewById(R.id.Highscore8);
+        highscore5 = (TextView) findViewById(R.id.Highscore5);
+        highscore6 = (TextView) findViewById(R.id.Highscore6);
+        highscore7 = (TextView) findViewById(R.id.Highscore7);
+        highscore8 = (TextView) findViewById(R.id.Highscore8);
         highscore9 = (TextView) findViewById(R.id.Highscore9);
         highscore10 = (TextView) findViewById(R.id.Highscore10);
-     high = new TextView[]{highscore1, highscore2, highscore3, highscore4, highscore5, highscore6, highscore7, highscore8, highscore9, highscore10};
 
-
-    }
-
-
-
-    public int[] readHighscore1() {
-
-        SharedPreferences pref = getSharedPreferences("POINTS", 0);
-        int[] highscores = new int[9];
-        for(int i = 1; i<=highscores.length; i++){
-            highscores[i-1] = pref.getInt("HIGHSCORE"+i, 0);
-        }
-        return highscores;
+        name1 = (TextView) findViewById(R.id.Name1);
+        name2 = (TextView) findViewById(R.id.Name2);
+        name3 = (TextView) findViewById(R.id.Name3);
+        name4 = (TextView) findViewById(R.id.Name4);
+        name5 = (TextView) findViewById(R.id.Name5);
+        name6 = (TextView) findViewById(R.id.Name6);
+        name7 = (TextView) findViewById(R.id.Name7);
+        name8 = (TextView) findViewById(R.id.Name8);
+        name9 = (TextView) findViewById(R.id.Name9);
+        name10 = (TextView) findViewById(R.id.Name10);
+        high = new TextView[]{highscore1, highscore2, highscore3, highscore4, highscore5, highscore6, highscore7, highscore8, highscore9, highscore10};
+        names = new TextView[]{name1, name2, name3, name4, name5, name6, name7, name8, name9, name10};
 
     }
 
 
-
-    public void zeitRanking(View v) {
+    public void readHighscoreZeit(View v) {
 
         SharedPreferences pref = getSharedPreferences("TIME", 0);
+        SharedPreferences pref2 = getSharedPreferences("NAMES_ZEIT", 0);
 
-        for (int i = 1; i <= high.length; i++) {
-            high[i - 1].setText( pref.getInt("HIGHSCORE" + i, 0));
 
+        for(int i = 1; i<=high.length; i++){
+            high[i-1].setText(""+pref.getInt("HIGHSCORE"+i, 9999));
+            names[i-1].setText(pref2.getString("NAME"+i, "noName"));
         }
     }
 
-    public void schrittRanking(View v)
+    public void readHighscoreSchritte(View v)
     {
         SharedPreferences pref = getSharedPreferences("POINTS", 0);
+        SharedPreferences pref2 = getSharedPreferences("NAMES_SCHRITTE", 0);
 
         for(int i = 1; i<=high.length; i++){
-            high[i-1].setText(pref.getInt("HIGHSCORE"+i, 0));
+            high[i-1].setText(""+pref.getInt("HIGHSCORE"+i, 9999));
+            names[i-1].setText(pref2.getString("NAME"+i, "noName"));
         }
-
     }
 
     public void goback (View v)

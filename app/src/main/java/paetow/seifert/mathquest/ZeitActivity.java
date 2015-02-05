@@ -36,6 +36,7 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
     private Button dialogReset, dialogNextLevel, Plusbutton, Minusbutton, Malbutton, Teilbutton, Resetbutton;
     private TextView Ausgabe, bubbleText, finalMessage, resetScoreAnzeige,  startZahl, zielZahl;
+    String newHighscoreName;
 
     public static ButtonProp buttonA, buttonB, buttonC, buttonD;
 
@@ -163,7 +164,14 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
                 dialog.hide();
 
                 if (levelCounter == 5) {
+                    EditText newName = (EditText) dialog.findViewById(R.id.newName);
+                    newHighscoreName = newName.getText().toString();   //diesen Wert in Highscore speichern
+
+                    if (newHighscoreName == "gib deinen Name ein"){newHighscoreName = "noName";}
+
+                    writeHighscore((int)timeWhenStopped/-1000);
                     levelEins_starten();
+                    timeWhenStopped = 0;
                     finalMessage.setVisibility(View.GONE);
                     highscoreAnzeige.setVisibility(View.GONE);
                     break;
@@ -349,17 +357,11 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
                 if (inARow) {
                     finalMessage.setText(R.string.finalMessage);
-                    resetScoreAnzeige.setText(timeWhenStopped + "");
-                    writeHighscore((int)timeWhenStopped);
+                    resetScoreAnzeige.setText(timeWhenStopped/-1000 + "");
                     highscoreAnzeige.setVisibility(View.VISIBLE);
 
-                    LinearLayout highscoreTextEdit = (LinearLayout) findViewById(R.id.newHighscore);
+                    LinearLayout highscoreTextEdit = (LinearLayout) dialog.findViewById(R.id.newHighscore);
                     highscoreTextEdit.setVisibility(View.VISIBLE);
-
-                    EditText newName = (EditText) findViewById(R.id.newName);
-                    String newHighscoreName = newName.getText().toString();   //diesen Wert in Highscore speichern
-
-                    if (newHighscoreName == "gib deinen Name ein"){newHighscoreName = "ohne Name";}
 
                 } else {
                     String test = getResources().getString(R.string.finalMessage2);
@@ -494,23 +496,34 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
 
 
     public void writeHighscore(int highscore) {
+
         SharedPreferences pref = getSharedPreferences("TIME", 0);
+        SharedPreferences pref2 = getSharedPreferences("NAMES_ZEIT", 0);
+
         int i = 1;
-        while(highscore>=pref.getInt("HIGHSCORE"+i, 0)){
+        while(highscore>=pref.getInt("HIGHSCORE"+i, 9999)){
             i++;
         }
         if (i<=10){
             SharedPreferences.Editor editor = pref.edit();
+            SharedPreferences.Editor editor2 = pref2.edit();
 
-            int temp = pref.getInt("HIGHSCORE"+i, 0);
+            int temp = pref.getInt("HIGHSCORE"+i, 9999);
+            String tempS = pref2.getString("NAME"+i, "none");
+
             editor.putInt("HIGHSCORE"+i, highscore);
+            editor2.putString("NAME"+i, newHighscoreName);
             while (i<10){
                 i++;
-                int temp2 = pref.getInt("HIGHSCORE"+i, 0);
+                int temp2 = pref.getInt("HIGHSCORE"+i, 9999);
+                String tempS2 = pref2.getString("NAME"+i, "none");
                 editor.putInt("HIGHSCORE"+i, temp);
+                editor2.putString("NAME"+i, tempS);
                 temp = temp2;
+                tempS = tempS2;
             }
             editor.commit();
+            editor2.commit();
         }
     }
 

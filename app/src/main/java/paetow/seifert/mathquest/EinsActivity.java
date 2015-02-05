@@ -31,6 +31,7 @@ public class EinsActivity extends Activity implements OnClickListener {
     private Dialog dialog;
     private Button dialogReset, dialogNextLevel, Plusbutton, Minusbutton, Malbutton, Teilbutton, Resetbutton;
     private TextView Ausgabe, bubbleText, finalMessage, resetScoreAnzeige,startZahl, zielZahl;
+    String newHighscoreName;
 
     public static ButtonProp buttonA, buttonB, buttonC, buttonD;
 
@@ -73,7 +74,7 @@ public class EinsActivity extends Activity implements OnClickListener {
         finalMessage = (TextView) dialog.findViewById(R.id.finalMessage);
         highscoreAnzeige = (LinearLayout) dialog.findViewById(R.id.stats);  //Lineares Layout enthälte die Anzeige des Highscore
         resetScoreAnzeige = (TextView) dialog.findViewById(R.id.pointsMade);
-              dialogNextLevel = (Button) dialog.findViewById(R.id.dialogNextLevel);
+        dialogNextLevel = (Button) dialog.findViewById(R.id.dialogNextLevel);
         dialogNextLevel.setOnClickListener(this);
         dialogReset = (Button) dialog.findViewById(R.id.dialogReset);
         dialogReset.setOnClickListener(this);
@@ -164,6 +165,10 @@ public class EinsActivity extends Activity implements OnClickListener {
                 dialog.hide();
 
                 if (levelCounter == 5) {
+                    EditText newName = (EditText) dialog.findViewById(R.id.newName);
+                    newHighscoreName = newName.getText().toString();   //diesen Wert in Highscore speichern
+                    if (newHighscoreName == "gib deinen Name ein"){newHighscoreName = "noName";}
+                    writeHighscore(resetCounter);
                     levelEins_starten();
                     finalMessage.setVisibility(View.GONE);
                     highscoreAnzeige.setVisibility(View.GONE);
@@ -318,17 +323,11 @@ public class EinsActivity extends Activity implements OnClickListener {
                 if (inARow) {
                     finalMessage.setText(R.string.finalMessage);
                     resetScoreAnzeige.setText(resetCounter + "");
-                    writeHighscore(resetCounter);
 
                     highscoreAnzeige.setVisibility(View.VISIBLE);
 
-                    LinearLayout highscoreTextEdit = (LinearLayout) findViewById(R.id.newHighscore);
+                    LinearLayout highscoreTextEdit = (LinearLayout) dialog.findViewById(R.id.newHighscore);
                     highscoreTextEdit.setVisibility(View.VISIBLE);
-
-                    EditText newName = (EditText) findViewById(R.id.newName);
-                    String newHighscoreName = newName.getText().toString();   //diesen Wert in Highscore speichern
-
-                    if (newHighscoreName == "gib deinen Name ein"){newHighscoreName = "ohne Name";}
                 } else {
                     String test = getResources().getString(R.string.finalMessage2);
                     finalMessage.setText(test);
@@ -454,22 +453,32 @@ public class EinsActivity extends Activity implements OnClickListener {
 
     public void writeHighscore(int highscore) {
         SharedPreferences pref = getSharedPreferences("POINTS", 0);
+        SharedPreferences pref2 = getSharedPreferences("NAMES_SCHRITTE", 0);
+
         int i = 1;
-        while(highscore>=pref.getInt("HIGHSCORE"+i, 0)){
+        while(highscore>=pref.getInt("HIGHSCORE"+i, 9999)){
             i++;
         }
         if (i<=10){
         SharedPreferences.Editor editor = pref.edit();
+        SharedPreferences.Editor editor2 = pref2.edit();
 
-        int temp = pref.getInt("HIGHSCORE"+i, 0);
+        int temp = pref.getInt("HIGHSCORE"+i, 9999);
+        String tempS = pref2.getString("NAME"+i, "none");
+
         editor.putInt("HIGHSCORE"+i, highscore);
+        editor2.putString("NAME"+i, newHighscoreName);
         while (i<10){
             i++;
-            int temp2 = pref.getInt("HIGHSCORE"+i, 0);
+            int temp2 = pref.getInt("HIGHSCORE"+i, 9999);
+            String tempS2 = pref2.getString("NAME"+i, "none");
             editor.putInt("HIGHSCORE"+i, temp);
+            editor2.putString("NAME"+i, tempS);
             temp = temp2;
+            tempS = tempS2;
         }
         editor.commit();
+        editor2.commit();
         }
     }
 

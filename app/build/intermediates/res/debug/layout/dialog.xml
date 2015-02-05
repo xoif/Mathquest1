@@ -28,7 +28,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -39,7 +39,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/stats"
         >
 
@@ -69,7 +69,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/newHighscore"
         >
 
@@ -86,7 +86,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="gib deinen Name ein"
             android:id="@+id/newName"
-            android:textColor="#ffffff"
             android:layout_gravity="center_horizontal"
             />
 
@@ -119,4 +118,4 @@
 
 
 </LinearLayout>
-<!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/layout/dialog.xml -->
+<!-- From: file:/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/main/res/layout/dialog.xml -->

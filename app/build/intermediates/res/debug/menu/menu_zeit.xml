@@ -4,4 +4,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>
-<!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/menu/menu_zeit.xml -->
+<!-- From: file:/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/main/res/menu/menu_zeit.xml -->

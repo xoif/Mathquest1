@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\Rolf Paetow\Desktop\Mathquest1\app\src\main\assets"/></dataSet><dataSet config="debug"><source path="C:\Users\Rolf Paetow\Desktop\Mathquest1\app\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/main/assets"/></dataSet><dataSet config="debug"><source path="/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/debug/assets"/></dataSet></merger>

@@ -14,4 +14,4 @@
         android:id="@+id/score"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-</LinearLayout><!-- From: file:/C:/Users/Rolf%20Paetow/Desktop/Mathquest1/app/src/main/res/layout/ranking_entry.xml -->
+</LinearLayout><!-- From: file:/Users/Domi/Informatik/AndroidStudio/Mathquest1/app/src/main/res/layout/ranking_entry.xml -->
