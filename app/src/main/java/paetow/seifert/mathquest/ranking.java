@@ -86,7 +86,7 @@ public class ranking extends Activity {
 
         for(int i = 1; i<=high.length; i++){
             high[i-1].setText(""+pref.getInt("HIGHSCORE"+i, 9999));
-            names[i-1].setText(pref2.getString("NAME"+i, "noName"));
+            names[i-1].setText(pref2.getString("NAME"+i, "Blondie"));
         }
     }
 
@@ -97,7 +97,7 @@ public class ranking extends Activity {
 
         for(int i = 1; i<=high.length; i++){
             high[i-1].setText(""+pref.getInt("HIGHSCORE"+i, 9999));
-            names[i-1].setText(pref2.getString("NAME"+i, "noName"));
+            names[i-1].setText(pref2.getString("NAME"+i, "Blondie"));
         }
     }
 

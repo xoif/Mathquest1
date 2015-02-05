@@ -464,14 +464,14 @@ public class EinsActivity extends Activity implements OnClickListener {
         SharedPreferences.Editor editor2 = pref2.edit();
 
         int temp = pref.getInt("HIGHSCORE"+i, 9999);
-        String tempS = pref2.getString("NAME"+i, "none");
+        String tempS = pref2.getString("NAME"+i, "Blondie");
 
         editor.putInt("HIGHSCORE"+i, highscore);
         editor2.putString("NAME"+i, newHighscoreName);
         while (i<10){
             i++;
             int temp2 = pref.getInt("HIGHSCORE"+i, 9999);
-            String tempS2 = pref2.getString("NAME"+i, "none");
+            String tempS2 = pref2.getString("NAME"+i, "Blondie");
             editor.putInt("HIGHSCORE"+i, temp);
             editor2.putString("NAME"+i, tempS);
             temp = temp2;
