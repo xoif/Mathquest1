@@ -23,8 +23,8 @@
     <string name="title_activity_eins">EinsActivity</string>
     <string name="gewonnen">geschafft!</string>
     <string name="verloren">Probiers noch einmal!</string>
-    <string name="finalMessage">Gratulation du hast alle 5 Prüfungen nach der Reihe bestanden! "nächster Level" startet ein neues Spiel </string>
-    <string name="finalMessage2">Gratulation du hast den schwersten mathquest Level geschafft! "nächster Level" startet ein neues Spiel</string>
+    <string name="finalMessage">Gratulation du hast alle 5 Prüfungen nach der Reihe bestanden!</string>
+    <string name="finalMessage2">Gratulation du hast den schwersten mathquest Level geschafft! Wenn du einen neuen Highscore erreichen willst, musst du allerdings alle 5 Level am Stück schaffen!</string>
     <string name="menuHighscore">wenigste Resets: </string>
     <string name="Schritte">Schritte</string>
     <string name="Zeit">Zeit</string>
