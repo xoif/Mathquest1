@@ -356,6 +356,8 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
                 finalMessage.setVisibility(View.VISIBLE);
 
                 if (inARow) {
+                    TextView temp = (TextView) dialog.findViewById(R.id.highscoreart);
+                    temp.setText("benötigte Zeit:  ");
                     finalMessage.setText(R.string.finalMessage);
                     resetScoreAnzeige.setText(timeWhenStopped/-1000 + "");
                     highscoreAnzeige.setVisibility(View.VISIBLE);
@@ -536,6 +538,14 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
         }
         return highscores;
 
+    }
+
+
+    public void cheat (View v)
+    {
+        zugCounter = levelCounter - 1;
+        ans = Goal;
+        ziehen();
     }
 
 

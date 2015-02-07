@@ -483,5 +483,11 @@ public class EinsActivity extends Activity implements OnClickListener {
     }
 
 
+    public void cheat (View v)
+    {
+        zugCounter = levelCounter - 1;
+        ans = Goal;
+        ziehen();
+    }
 
 }
