@@ -75,6 +75,7 @@ public class ranking extends Activity {
         high = new TextView[]{highscore1, highscore2, highscore3, highscore4, highscore5, highscore6, highscore7, highscore8, highscore9, highscore10};
         names = new TextView[]{name1, name2, name3, name4, name5, name6, name7, name8, name9, name10};
 
+        readHighscoreZeit(null);
     }
 
 
