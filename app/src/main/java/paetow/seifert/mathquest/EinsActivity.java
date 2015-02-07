@@ -169,9 +169,12 @@ public class EinsActivity extends Activity implements OnClickListener {
                     newHighscoreName = newName.getText().toString();   //diesen Wert in Highscore speichern
                     if (newHighscoreName == "gib deinen Name ein"){newHighscoreName = "noName";}
                     writeHighscore(resetCounter);
-                    levelEins_starten();
                     finalMessage.setVisibility(View.GONE);
                     highscoreAnzeige.setVisibility(View.GONE);
+
+                    Intent in = new Intent(this, MenuActivity.class);   //geht wieder ins Hauptmenü
+                    startActivity(in);
+                    dialog.dismiss();
                     break;
                 } else {
                     nextLevel();
@@ -331,11 +334,13 @@ public class EinsActivity extends Activity implements OnClickListener {
                 } else {
                     String test = getResources().getString(R.string.finalMessage2);
                     finalMessage.setText(test);
-
                 }
+
+                dialogNextLevel.setText("zurück zum Hauptmenü");
             }
             TextView headLine = (TextView) dialog.findViewById(R.id.headline);
             headLine.setText("gewonnen");
+
 
             dialogNextLevel.setVisibility(View.VISIBLE);    //nextLevel Button anzeigen
             dialogReset.setVisibility(View.GONE);           //Reset Button ausblenden

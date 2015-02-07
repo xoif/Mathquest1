@@ -170,10 +170,13 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
                     if (newHighscoreName == "gib deinen Name ein"){newHighscoreName = "noName";}
 
                     writeHighscore((int)timeWhenStopped/-1000);
-                    levelEins_starten();
                     timeWhenStopped = 0;
                     finalMessage.setVisibility(View.GONE);
                     highscoreAnzeige.setVisibility(View.GONE);
+
+                    Intent in = new Intent(this, MenuActivity.class);   //geht wieder ins Hauptmenü
+                    startActivity(in);
+                    dialog.dismiss();
                     break;
                 } else {
                     nextLevel();
@@ -370,6 +373,8 @@ public class ZeitActivity extends Activity implements View.OnClickListener{
                     finalMessage.setText(test);
 
                 }
+
+                dialogNextLevel.setText("zurück zum Hauptmenü");
             }
             TextView headLine = (TextView) dialog.findViewById(R.id.headline);
             headLine.setText("gewonnen");
